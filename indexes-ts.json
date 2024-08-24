@@ -1,0 +1,8 @@
+[
+    {
+        "dir": "./src/data"
+    },
+    {
+        "dir": "./src/types"
+    }
+]
