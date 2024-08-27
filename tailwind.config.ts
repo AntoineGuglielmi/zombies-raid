@@ -22,6 +22,7 @@ const config = {
       'card-bg': 'var(--color-card-bg)',
       'card-border': 'var(--color-card-border)',
       'card-text': 'var(--color-card-text)',
+      'card-door': 'var(--color-card-door)',
       'board-text': 'var(--color-board-text)',
     },
     fontFamily: {

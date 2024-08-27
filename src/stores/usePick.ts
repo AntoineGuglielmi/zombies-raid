@@ -1,13 +1,19 @@
-import { TypeCorridorCard } from '@/types'
+import { TypeCorridorCard, TypeRoomCard, TypeRoomCardBlueprint } from '@/types'
 import { TypeCorridorCardBlueprint } from '@/types/TypeCorridorCardBlueprint'
+import { randomId } from '@/utils'
+import { get } from 'http'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface PickState {
-  corridorCards: Array<any>
-  roomCards: Array<any>
+  corridorCards: Array<TypeCorridorCard>
+  roomCards: Array<TypeRoomCard>
+  pickedRoomCard: TypeRoomCard | null
+  dealInitialCorridorCards: () => Array<TypeCorridorCard>
+  pickARoomCard: () => void
 }
 
+// Corridor cards
 const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
   {
     doors: [0, 0],
@@ -35,6 +41,7 @@ const computedCorridorCards = pickCorridorBlueprint.reduce(
         stairs,
         face: 'down',
         start: false,
+        id: randomId(),
       }
       cards.push(card)
     }
@@ -54,20 +61,97 @@ const corridorCardsWithStairsCard = [
   ...computedCorridorCards.slice(0, corridorCardsLengthHalf),
   ...[
     {
-      doors: 0,
+      doors: [0, 0],
       stairs: true,
       face: 'down',
       start: false,
-    },
+      id: randomId(),
+    } as TypeCorridorCard,
     ...computedCorridorCards.slice(corridorCardsLengthHalf),
   ].sort(() => Math.random() - 0.5),
 ]
 
-export const usePick = create(
+// Room cards
+const pickRoomBlueprint: Array<TypeRoomCardBlueprint> = [
+  {
+    locked: true,
+    trapped: false,
+    hm: 4,
+    ammo: 5,
+    coffee: 5,
+    croissant: 5,
+    lemon: 5,
+    sourCandy: 5,
+  },
+  {
+    locked: false,
+    trapped: true,
+    hm: 4,
+    ammo: 5,
+    coffee: 5,
+    croissant: 5,
+    lemon: 5,
+    sourCandy: 5,
+  },
+  {
+    locked: false,
+    trapped: false,
+    hm: 4,
+    ammo: 5,
+    coffee: 5,
+    croissant: 5,
+    lemon: 5,
+    sourCandy: 5,
+  },
+]
+
+const computedRoomCards = pickRoomBlueprint.reduce(
+  (
+    acc: Array<TypeRoomCard>,
+    { ammo, coffee, croissant, lemon, locked, sourCandy, trapped, hm },
+  ) => {
+    const cards = []
+    for (let i = 0; i < hm; i++) {
+      const card: TypeRoomCard = {
+        ammo,
+        coffee,
+        croissant,
+        lemon,
+        locked,
+        sourCandy,
+        trapped,
+      }
+      cards.push(card)
+    }
+    return [...acc, ...cards]
+  },
+  [],
+)
+
+for (let i = 0; i < 10; i++) {
+  computedRoomCards.sort(() => Math.random() - 0.5)
+}
+
+export const UsePick = create(
   persist<PickState>(
-    (set) => ({
+    (set, get) => ({
       corridorCards: corridorCardsWithStairsCard,
-      roomCards: [],
+      roomCards: computedRoomCards,
+      pickedRoomCard: null,
+      dealInitialCorridorCards: () => {
+        const cardsToDeal: Array<TypeCorridorCard> = []
+        for (let i = 0; i < 3; i++) {
+          cardsToDeal.push(get().corridorCards.shift() as TypeCorridorCard)
+        }
+        return cardsToDeal
+      },
+      pickARoomCard: () => {
+        if (get().pickARoomCard !== null) {
+          return
+        }
+        const card = get().roomCards.shift()
+        set({ pickedRoomCard: card })
+      },
     }),
     {
       name: 'pick-store',

@@ -1,34 +1,45 @@
 import { TypeCorridorCard, TypeStartCard } from '@/types'
+import { randomId } from '@/utils'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface BoardState {
   onSet: Array<TypeCorridorCard>
+  addToBoard: (card: TypeCorridorCard) => void
 }
+
+const onSetCards: Array<TypeCorridorCard> = [
+  {
+    start: true,
+    doors: [0, 0],
+    stairs: false,
+    face: 'up',
+    id: 0,
+  },
+  {
+    doors: [0, 0],
+    stairs: false,
+    face: 'up',
+    start: false,
+    id: randomId(),
+  },
+  {
+    doors: [0, 0],
+    stairs: false,
+    face: 'up',
+    start: false,
+    id: randomId(),
+  },
+]
 
 export const useBoard = create(
   persist<BoardState>(
     (set) => ({
-      onSet: [
-        {
-          start: true,
-          doors: [0, 0],
-          stairs: false,
-          face: 'up',
-        },
-        {
-          doors: [0, 0],
-          stairs: false,
-          face: 'up',
-          start: false,
-        },
-        {
-          doors: [0, 0],
-          stairs: false,
-          face: 'up',
-          start: false,
-        },
-      ],
+      onSet: onSetCards,
+      addToBoard: (card: TypeCorridorCard) =>
+        set((state) => ({
+          onSet: [...state.onSet, card],
+        })),
     }),
     {
       name: 'board-store',

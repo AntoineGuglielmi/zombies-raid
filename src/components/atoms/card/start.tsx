@@ -7,6 +7,7 @@ type StartProps = {
   variant?: 'default' | 'other'
   size?: 'default' | 'medium'
   children?: React.ReactNode
+  id?: number
 }
 
 const StartVariants = cva(
@@ -34,11 +35,13 @@ export default function Start({
   variant,
   size,
   children,
+  id,
 }: StartProps) {
   return (
     <Card
       variant="onSet"
       className={cn(StartVariants({ variant, size, className }))}
+      id={id}
     >
       Carte départ
     </Card>
