@@ -1,5 +1,15 @@
+import {
+  TypeDoors,
+  TypeHM,
+  TypeIntersection,
+  TypeStairs,
+  TypeTurn,
+} from './TypeCorridorCard'
+
 export type TypeCorridorCardBlueprint = {
-  doors: [0 | 1, 0 | 1]
-  hm: number // How many
-  stairs: boolean
+  doors: TypeDoors
+  hm: TypeHM
+  stairs: TypeStairs
+  intersection: TypeIntersection
+  turn: TypeTurn
 }

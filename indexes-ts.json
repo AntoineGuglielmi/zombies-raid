@@ -4,5 +4,8 @@
     },
     {
         "dir": "./src/types"
+    },
+    {
+        "dir": "./src/store"
     }
 ]

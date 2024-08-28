@@ -7,6 +7,7 @@ import { useCorridorCards } from '@/stores/useCorridorCards'
 import { UsePick } from '@/stores/usePick'
 import { usePlayers } from '@/stores/usePlayers'
 import dynamic from 'next/dynamic'
+import { redirect } from 'next/navigation'
 import { Suspense, useEffect } from 'react'
 
 const BoardHeader = dynamic(
@@ -23,13 +24,14 @@ const BoardBody = dynamic(
 )
 
 export default function Home() {
-  return (
-    <div
-      id="board"
-      className="grid grid-rows-[auto,1fr] h-screen"
-    >
-      <BoardHeader />
-      <BoardBody />
-    </div>
-  )
+  return redirect('/regles')
+  // return (
+  //   <div
+  //     id="board"
+  //     className="grid grid-rows-[auto,1fr] h-screen"
+  //   >
+  //     <BoardHeader />
+  //     <BoardBody />
+  //   </div>
+  // )
 }

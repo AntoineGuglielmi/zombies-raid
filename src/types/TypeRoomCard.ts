@@ -6,4 +6,5 @@ export type TypeRoomCard = {
   lemon?: number
   sourCandy?: number
   ammo?: number
+  id: number
 }

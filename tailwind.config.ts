@@ -28,9 +28,14 @@ const config = {
     fontFamily: {
       nunito: 'var(--font-nunito)',
     },
-    extend: {},
+    extend: {
+      borderWidth: {
+        card: 'var(--border-card)',
+      },
+    },
     borderRadius: {
       card: 'var(--rounded-card)',
+      pick: 'var(--rounded-pick)',
     },
   },
   plugins: [require('tailwindcss-animate')],
