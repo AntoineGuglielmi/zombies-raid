@@ -8,10 +8,13 @@ type DicesProps = {
   children?: React.ReactNode
 }
 
-const DicesVariants = cva('Dices', {
-  variants: {},
-  defaultVariants: {},
-})
+const DicesVariants = cva(
+  'Dices bg-body-bg rounded-dices p-4 flex flex-col justify-around relative',
+  {
+    variants: {},
+    defaultVariants: {},
+  },
+)
 
 export default function Dices({ className, children }: DicesProps) {
   return (

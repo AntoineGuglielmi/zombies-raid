@@ -3,19 +3,40 @@
 @tailwind utilities;
 
 :root {
+  /* COLORS */
+  /* Body */
   --color-body-bg: #141614;
 
+  /* Card */
   --color-card-bg: #1b251b;
   --color-card-border: #c7c7c7;
   --color-card-text: var(--color-card-border);
   --color-card-door: var(--color-card-border);
 
+  /* Board */
   --color-board-text: #c7c7c7;
 
+  /* Dice */
+  --color-dice-bg: #1b251b;
+  --color-chip-bg: #c7c7c7;
+
+  /* Button */
+  --color-button-bg: #e4dae4;
+  --color-button-text: #1b251b;
+
+  /* BORDER-RADIUS */
   --rounded-card: 0.5rem;
   --rounded-pick: 1rem;
+  --rounded-dice: 0.75rem;
+  --rounded-dices: 1rem;
+  --rounded-button: 0.5rem;
 
+  /* BORDER */
   --border-card: 7px;
+
+  /* SPACINGS */
+  --spacing-dice-chip: 9px;
+  --spacing-chip-size: 15px;
 }
 
 .ul-base {

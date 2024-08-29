@@ -1,6 +1,7 @@
 export * from './EnumDifficulty'
 export * from './TypeCorridorCard'
 export * from './TypeCorridorCardBlueprint'
+export * from './TypeDice'
 export * from './TypePlayer'
 export * from './TypeRoomCard'
 export * from './TypeRoomCardBlueprint'
