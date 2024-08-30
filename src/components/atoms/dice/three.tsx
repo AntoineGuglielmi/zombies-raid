@@ -7,9 +7,10 @@ import Two from './two'
 type ThreeProps = {
   className?: string
   children?: React.ReactNode
+  size?: 'normal' | 'small'
 }
 
-export default function Three({ className, children }: ThreeProps) {
+export default function Three({ className, children, size }: ThreeProps) {
   return (
     <>
       <One />

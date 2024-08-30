@@ -19,6 +19,8 @@
   /* Dice */
   --color-dice-bg: #1b251b;
   --color-chip-bg: #c7c7c7;
+  --color-dice-ring-other: #2e6d2e;
+  --color-dice-ring-stealthy: #359b35;
 
   /* Button */
   --color-button-bg: #e4dae4;
@@ -32,11 +34,13 @@
   --rounded-button: 0.5rem;
 
   /* BORDER */
-  --border-card: 7px;
+  --border-card: 3px;
 
   /* SPACINGS */
-  --spacing-dice-chip: 9px;
-  --spacing-chip-size: 15px;
+  --spacing-dice-chip: 12%;
+  --spacing-chip-size: 20%;
+  --spacing-dice-ring-other: 3px;
+  --spacing-dice-ring-stealthy: 6px;
 }
 
 .ul-base {

@@ -12,7 +12,7 @@ interface CorridorCardsState {
   putCorridorCardInHand: () => void
 }
 
-const HOW_MANY_SIMPLE_CORRIDOR_CARDS = 18
+const HOW_MANY_SIMPLE_CORRIDOR_CARDS = 24
 const CORRIDOR_CARDS_AT_START = 2
 const ADD_CORRIDOR_CARDS_AT_START = false
 const PERCENTAGE_CARDS_BEFORE_STAIRS = 0.5
@@ -27,6 +27,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: false,
     turn: false,
+    typeId: 'straight-no-door',
   },
   {
     doors: 1,
@@ -34,6 +35,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: false,
     turn: false,
+    typeId: 'straight-1-door',
   },
   {
     doors: 2,
@@ -41,6 +43,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: false,
     turn: false,
+    typeId: 'straight-2-doors',
   },
   {
     doors: 'top',
@@ -48,6 +51,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: 'T',
     turn: false,
+    typeId: 'intersection-t-door',
   },
   {
     doors: 0,
@@ -55,6 +59,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: 'T',
     turn: false,
+    typeId: 'intersection-t-no-door',
   },
   {
     doors: 0,
@@ -62,6 +67,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: 'X',
     turn: false,
+    typeId: 'intersection-x',
   },
   {
     doors: 0,
@@ -69,6 +75,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: false,
     turn: true,
+    typeId: 'turn-no-door',
   },
   {
     doors: 'left',
@@ -76,6 +83,7 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: false,
     turn: true,
+    typeId: 'turn-door-left',
   },
   {
     doors: 'right',
@@ -83,11 +91,15 @@ const pickCorridorBlueprint: Array<TypeCorridorCardBlueprint> = [
     stairs: false,
     intersection: false,
     turn: true,
+    typeId: 'turn-door-right',
   },
 ]
 
 const computedCorridorCards = pickCorridorBlueprint.reduce(
-  (acc: Array<TypeCorridorCard>, { doors, hm, stairs, intersection, turn }) => {
+  (
+    acc: Array<TypeCorridorCard>,
+    { doors, hm, stairs, intersection, turn, typeId },
+  ) => {
     const cards = []
     for (let i = 0; i < hm; i++) {
       const card: TypeCorridorCard = {
@@ -96,6 +108,7 @@ const computedCorridorCards = pickCorridorBlueprint.reduce(
         id: randomId(),
         intersection,
         turn,
+        typeId,
       }
       cards.push(card)
     }
@@ -124,6 +137,7 @@ const stairsCard: TypeCorridorCard = {
   id: randomId(),
   intersection: false,
   turn: false,
+  typeId: 'stairs',
 }
 
 const corridorCardsWithStairs = [
@@ -146,6 +160,7 @@ const simpleCorridorCard: TypeCorridorCard = {
   id: randomId(),
   intersection: false,
   turn: false,
+  typeId: 'straight-no-door',
 }
 
 if (ADD_CORRIDOR_CARDS_AT_START) {
@@ -160,6 +175,9 @@ export const UseCorridorCards = create(
       corridorCards,
       pickedCorridorCard: null,
       pickCorridorCard: () => {
+        // if (get().pickedCorridorCard !== null) {
+        //   return
+        // }
         const { corridorCards } = get()
         const pickedCorridorCard = corridorCards.shift()
         set({ corridorCards, pickedCorridorCard })

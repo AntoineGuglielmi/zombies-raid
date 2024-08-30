@@ -45,9 +45,7 @@ export default function BoardHeader({ className, children }: BoardHeaderProps) {
     addCardToCurrentPlayer()
   }
 
-  const onClick = () => {
-    console.log('click')
-  }
+  const onClick = () => {}
 
   const pickARoomCard = () => {
     pickARoomCardFromStore()

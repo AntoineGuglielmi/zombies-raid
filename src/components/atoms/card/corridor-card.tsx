@@ -1,6 +1,7 @@
 import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { TypeCorridorCard } from '@/types'
+import dynamic from 'next/dynamic'
 
 type CorridorCardProps = {
   className?: string
@@ -10,7 +11,7 @@ type CorridorCardProps = {
 }
 
 const CorridorCardVariants = cva(
-  'CorridorCard bg-card-bg h-[175px] w-[175px] p-4 flex flex-col items-center justify-center text-center rounded-card',
+  'CorridorCard bg-card-bg h-[175px] w-[175px] p-2 flex flex-col items-center justify-center text-center rounded-card cursor-pointer',
   {
     variants: {},
     defaultVariants: {},
@@ -45,6 +46,10 @@ export default function CorridorCard({
     }
   }
 
+  const CardSVG = dynamic(() => import(`../rooms/${card?.typeId}`), {
+    ssr: false,
+  })
+
   return (
     <div
       className={cn(CorridorCardVariants({ className }))}
@@ -52,7 +57,7 @@ export default function CorridorCard({
     >
       {card ? (
         <>
-          {card.stairs ? (
+          {/* {card.stairs ? (
             <p>Les escaliers ! On est sauvé !</p>
           ) : (
             <>
@@ -62,7 +67,8 @@ export default function CorridorCard({
               <p>Intersection : {card.intersection || 'Non'}</p>
               <p>Virage : {card.turn ? 'Oui' : 'Non'}</p>
             </>
-          )}
+          )} */}
+          <CardSVG />
         </>
       ) : (
         children

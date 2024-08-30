@@ -1,0 +1,122 @@
+type RoomProps = {
+  className?: string
+}
+
+export default function Room({ className }: RoomProps) {
+  return (
+    <svg
+      width="425"
+      height="425"
+      viewBox="0 0 425 425"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <g clipPath="url(#clip0_1_86)">
+        <rect
+          width="425"
+          height="425"
+          fill="white"
+        />
+        <rect
+          width="85"
+          height="425"
+          fill="#CBCBCB"
+        />
+        <rect
+          x="340"
+          y="-1"
+          width="85"
+          height="426"
+          fill="#CBCBCB"
+        />
+        <rect
+          x="85"
+          y="340"
+          width="255"
+          height="85"
+          fill="#CBCBCB"
+        />
+        <rect
+          x="85"
+          width="255"
+          height="85"
+          fill="#CBCBCB"
+        />
+        <line
+          x1="1.35355"
+          y1="-0.353553"
+          x2="86.3536"
+          y2="84.6464"
+          stroke="#B9B9B9"
+        />
+        <line
+          x1="340.354"
+          y1="340.646"
+          x2="425.354"
+          y2="425.646"
+          stroke="#B9B9B9"
+        />
+        <line
+          x1="338.646"
+          y1="84.6464"
+          x2="423.646"
+          y2="-0.353557"
+          stroke="#B9B9B9"
+        />
+        <line
+          x1="0.646447"
+          y1="425.646"
+          x2="85.6465"
+          y2="340.646"
+          stroke="#B9B9B9"
+        />
+        <rect
+          x="192"
+          y="340"
+          width="42"
+          height="63"
+          fill="#717171"
+        />
+        <rect
+          x="86"
+          y="122"
+          width="42"
+          height="180"
+          fill="#B6B6B6"
+        />
+        <rect
+          x="255"
+          y="85"
+          width="84"
+          height="37"
+          fill="#B6B6B6"
+        />
+        <rect
+          x="303"
+          y="339"
+          width="84"
+          height="37"
+          transform="rotate(-90 303 339)"
+          fill="#B6B6B6"
+        />
+        <rect
+          x="255"
+          y="304"
+          width="84"
+          height="37"
+          fill="#B6B6B6"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1_86">
+          <rect
+            width="425"
+            height="425"
+            fill="white"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}

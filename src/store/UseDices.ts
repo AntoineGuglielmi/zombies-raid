@@ -44,13 +44,13 @@ export const UseDices = create(
         faces: [1, 2, 3, 4, 5, 6],
       },
       slowZombieDice: {
-        faces: [2, 2, 2, 3, 3, 4],
+        faces: [1, 2, 2, 3, 3, 4],
       },
       fastZombieDice: {
         faces: [0, 1, 1, 1, 2, 2],
       },
       sniperZombieDice: {
-        faces: [0, 0, 1, 1, 2, 2],
+        faces: [0, 0, 0, 0, 1, 1],
       },
       drawnedCoffee: 1,
       drawnedCroissant: 1,

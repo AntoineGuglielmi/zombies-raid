@@ -4,6 +4,7 @@ import {
   TypeIntersection,
   TypeStairs,
   TypeTurn,
+  TypeTypeId,
 } from './TypeCorridorCard'
 
 export type TypeCorridorCardBlueprint = {
@@ -12,4 +13,5 @@ export type TypeCorridorCardBlueprint = {
   stairs: TypeStairs
   intersection: TypeIntersection
   turn: TypeTurn
+  typeId: TypeTypeId
 }

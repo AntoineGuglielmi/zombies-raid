@@ -17,22 +17,62 @@ const pickRoomBlueprint: Array<TypeRoomCardBlueprint> = [
   {
     locked: false,
     trapped: false,
-    ammo: 2,
-    coffee: 2,
-    croissant: 3,
-    lemon: 2,
-    sourCandy: 3,
+    ammo: [5, 6],
+    coffee: [5, 6],
+    croissant: [4, 5, 6],
+    lemon: [5, 6],
+    sourCandy: [4, 5, 6],
     hm: 7,
   },
   {
     locked: false,
     trapped: false,
-    ammo: 3,
-    coffee: 1,
-    croissant: 2,
-    lemon: 1,
-    sourCandy: 2,
+    ammo: [4, 5, 6],
+    coffee: [6],
+    croissant: [5, 6],
+    lemon: [6],
+    sourCandy: [5, 6],
     hm: 3,
+  },
+  {
+    locked: false,
+    trapped: false,
+    ammo: [6],
+    coffee: [6],
+    croissant: [5, 6],
+    lemon: [6],
+    sourCandy: [6],
+    hm: 3,
+  },
+  {
+    locked: true,
+    trapped: false,
+    ammo: [5, 6],
+    coffee: [5, 6],
+    croissant: [4, 5, 6],
+    lemon: [5, 6],
+    sourCandy: [4, 5, 6],
+    hm: 5,
+  },
+  {
+    locked: false,
+    trapped: true,
+    ammo: [5, 6],
+    coffee: [5, 6],
+    croissant: [4, 5, 6],
+    lemon: [5, 6],
+    sourCandy: [4, 5, 6],
+    hm: 5,
+  },
+  {
+    locked: true,
+    trapped: true,
+    ammo: [3, 4, 5, 6],
+    coffee: [4, 5, 6],
+    croissant: [4, 5, 6],
+    lemon: [5, 6],
+    sourCandy: [5, 6],
+    hm: 1,
   },
 ]
 
@@ -60,10 +100,6 @@ const roomCards = pickRoomBlueprint.reduce(
   [],
 )
 
-console.log({
-  roomCardsFromStore: roomCards,
-})
-
 for (let i = 0; i < SHUFFLE; i++) {
   roomCards.sort(() => Math.random() - 0.5)
 }
@@ -74,6 +110,9 @@ export const UseRoomCards = create(
       roomCards,
       pickedRoomCard: null,
       pickRoomCard: () => {
+        if (get().pickedRoomCard !== null) {
+          return
+        }
         const { roomCards } = get()
         const pickedRoomCard = roomCards.shift()
         set({ roomCards, pickedRoomCard })

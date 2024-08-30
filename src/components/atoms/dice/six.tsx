@@ -9,12 +9,13 @@ import Five from './five'
 type SixProps = {
   className?: string
   children?: React.ReactNode
+  size?: 'normal' | 'small'
 }
 
-export default function Six({ className, children }: SixProps) {
+export default function Six({ className, children, size }: SixProps) {
   return (
     <>
-      <Four />
+      <Four size={size} />
       <Chip className="top-1/2 left-dice-chip translate-y-[-50%]" />
       <Chip className="top-1/2 right-dice-chip translate-y-[-50%]" />
     </>

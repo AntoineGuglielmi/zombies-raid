@@ -41,6 +41,10 @@ const config = {
         'dice-chip': 'var(--spacing-dice-chip)',
         'chip-size': 'var(--spacing-chip-size)',
       },
+      ringColor: {
+        'dice-ring-color-other': 'var(--color-dice-ring-other)',
+        'dice-ring-color-stealthy': 'var(--color-dice-ring-stealthy)',
+      },
     },
     borderRadius: {
       card: 'var(--rounded-card)',

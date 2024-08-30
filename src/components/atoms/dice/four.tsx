@@ -7,12 +7,13 @@ import Two from './two'
 type FourProps = {
   className?: string
   children?: React.ReactNode
+  size?: 'normal' | 'small'
 }
 
-export default function Four({ className, children }: FourProps) {
+export default function Four({ className, children, size }: FourProps) {
   return (
     <>
-      <Two />
+      <Two size={size} />
       <Chip className="top-dice-chip left-dice-chip" />
       <Chip className="bottom-dice-chip right-dice-chip" />
     </>

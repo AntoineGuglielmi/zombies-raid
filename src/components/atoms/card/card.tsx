@@ -21,7 +21,7 @@ const CardVariants = cva(
       //   room: 'w-[300px] h-[300px]',
       // },
       variant: {
-        pick: 'border-[6px] shadow-[0_0_0.25rem_0_rgba(0,0,0,0.25)]',
+        pick: 'border-card shadow-[0_0_0.25rem_0_rgba(0,0,0,0.25)]',
         onSet: 'border-[10px]',
       },
     },

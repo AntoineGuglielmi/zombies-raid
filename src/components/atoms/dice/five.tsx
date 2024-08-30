@@ -8,9 +8,10 @@ import Four from './four'
 type FiveProps = {
   className?: string
   children?: React.ReactNode
+  size?: 'normal' | 'small'
 }
 
-export default function Five({ className, children }: FiveProps) {
+export default function Five({ className, children, size }: FiveProps) {
   return (
     <>
       <One />
