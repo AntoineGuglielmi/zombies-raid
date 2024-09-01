@@ -16,7 +16,7 @@ type ZombieDicesProps = {
 }
 
 const ZombieDicesVariants = cva(
-  'ZombieDices flex justify-center items-center gap-8',
+  'ZombieDices grid grid-cols-2 items-center gap-8',
   {
     variants: {},
     defaultVariants: {},
@@ -49,7 +49,7 @@ export default function ZombieDices({ className, children }: ZombieDicesProps) {
       </div>
       <button
         onClick={drawZombies}
-        className="bg-button-bg self-center text-button-text py-2 px-4 rounded-button"
+        className="bg-button-bg self-center text-button-text py-2 px-4 rounded-button w-[175px]"
       >
         Lancer
         <br />

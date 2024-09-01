@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.variable} bg-body-bg text-board-text font-nunito`}
+        className={`${nunito.variable} bg-body-bg text-board-text font-nunito debug-screens`}
       >
         {children}
       </body>

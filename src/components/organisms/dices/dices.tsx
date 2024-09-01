@@ -9,7 +9,7 @@ type DicesProps = {
 }
 
 const DicesVariants = cva(
-  'Dices bg-body-bg rounded-dices p-4 flex flex-col justify-around relative',
+  'Dices bg-body-bg rounded-dices p-4 flex flex-col gap-8 justify-around relative',
   {
     variants: {},
     defaultVariants: {},

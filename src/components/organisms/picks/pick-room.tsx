@@ -9,7 +9,7 @@ type PickRoomProps = {
 }
 
 const PickRoomVariants = cva(
-  'PickRoom bg-body-bg rounded-pick p-4 flex justify-around items-center relative',
+  'PickRoom bg-body-bg rounded-pick p-4 pt-14 flex max-sm:flex-col gap-4 justify-around items-center relative',
   {
     variants: {},
     defaultVariants: {},

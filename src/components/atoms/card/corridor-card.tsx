@@ -37,6 +37,10 @@ export default function CorridorCard({
     }
   }
 
+  console.log({
+    cardFromCarridorCard: card,
+  })
+
   const computedDoorsLabel = () => {
     switch (card?.doors) {
       case 2:

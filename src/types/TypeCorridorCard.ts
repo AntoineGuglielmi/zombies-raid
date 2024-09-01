@@ -22,5 +22,5 @@ export type TypeTypeId =
   | 'intersection-t-no-door'
   | 'straight-no-door'
   | 'straight-1-door'
-  | 'straight-2-door'
+  | 'straight-2-doors'
   | 'stairs'

@@ -10,6 +10,13 @@ const config = {
   ],
   prefix: '',
   theme: {
+    debugScreens: {
+      style: {
+        fontSize: '1.5rem',
+        backgroundColor: '#FFB114',
+        color: '#251a03',
+      },
+    },
     container: {
       center: true,
       padding: '1rem',
@@ -55,7 +62,10 @@ const config = {
       full: '9999px',
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    // require('tailwindcss-debug-screens'),
+  ],
 } satisfies Config
 
 export default config

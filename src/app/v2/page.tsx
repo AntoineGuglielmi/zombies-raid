@@ -24,8 +24,8 @@ type V2PageProps = {
 
 export default function V2Page({ params: {} }: V2PageProps) {
   return (
-    <main className="bg-[white] min-h-screen grid grid-cols-2 gap-4 p-4">
-      <div className="grid grid-rows-2 gap-4">
+    <main className="bg-[white] min-h-screen grid grid-cols-1 xl:grid-cols-2 gap-4 p-4">
+      <div className="grid grid-rows-[auto_auto] gap-4">
         <PickCorridor />
         <PickRoom />
       </div>
