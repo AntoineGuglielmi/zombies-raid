@@ -61,17 +61,6 @@ export default function CorridorCard({
     >
       {card ? (
         <>
-          {/* {card.stairs ? (
-            <p>Les escaliers ! On est sauvé !</p>
-          ) : (
-            <>
-              <p>
-                {computedDoorsLabel()} : {computedDoors()}
-              </p>
-              <p>Intersection : {card.intersection || 'Non'}</p>
-              <p>Virage : {card.turn ? 'Oui' : 'Non'}</p>
-            </>
-          )} */}
           <CardSVG />
         </>
       ) : (
