@@ -7,7 +7,7 @@ type DiceAndLabelProps = {
 }
 
 const DiceAndLabelVariants = cva(
-  'DiceAndLabel grid grid-cols-[1fr_auto] gap-4 text-right items-center justify-between',
+  'DiceAndLabel grid grid-cols-[1fr_1fr] sm:grid-cols-[1fr_auto] gap-4 text-right items-center justify-between',
   {
     variants: {},
     defaultVariants: {},

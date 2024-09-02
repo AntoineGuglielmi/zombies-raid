@@ -17,7 +17,7 @@ type TokenDicesProps = {
   children?: React.ReactNode
 }
 
-const TokenDicesVariants = cva('TokenDices grid grid-cols-2 gap-8', {
+const TokenDicesVariants = cva('TokenDices grid grid-cols-1 sm:grid-cols-2 gap-4', {
   variants: {},
   defaultVariants: {},
 })
@@ -101,7 +101,7 @@ export default function TokenDices({ className, children }: TokenDicesProps) {
       </div>
       <button
         onClick={drawResources}
-        className="bg-button-bg self-center text-button-text py-2 px-4 rounded-button w-[175px]"
+        className="bg-button-bg block mx-auto sm:self-center text-button-text py-2 px-4 rounded-button w-[175px]"
       >
         Lancer
         <br />
