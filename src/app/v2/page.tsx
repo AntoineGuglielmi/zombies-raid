@@ -1,5 +1,6 @@
 'use client'
 
+import RemoveClientSideData from '@/components/atoms/remove-client-side-data/remove-client-side-data'
 import dynamic from 'next/dynamic'
 
 const Dices = dynamic(() => import('@/components/organisms/dices/dices'), {
@@ -30,6 +31,7 @@ export default function V2Page({ params: {} }: V2PageProps) {
         <PickRoom />
       </div>
       <Dices />
+      <RemoveClientSideData />
     </main>
   )
 }
